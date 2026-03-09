@@ -1,38 +1,58 @@
-# ./
+📝 專案簡介
+這是一個針對台中洲際棒球場官方網站的全面改版專案（簡稱 洲際）。在深入研究原網站後我們發現洲際最核心的TA其實並非球迷，而是有活動舉辦需求需要大型場地租借的「活動廠商」。因此我們的改版目標出了最基本的首頁外會加強租借服務、合作提案頁面的呈現，強化視覺體驗，並優化了各項功能的操作流程，讓「活動廠商」能夠更直覺地獲取球場資訊、租借場地。
 
-This template should help get you started developing with Vue 3 in Vite.
+⚾ 首頁特色與棒球元素融合
 
-## Recommended IDE Setup
+視覺設計：棒球縫線造型標題、球場平面圖 SVG 互動展示、本壘板造型Banner影片加深使用者帶入感。
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+沉浸式體驗：球場紅色顆粒感背景猶如戰場上紅土、視差滾動效果增加畫面動態感、自動輪播精彩賽事影像。
 
-## Recommended Browser Setup
+球場導覽：分層展示內場/外圍區域，經緯度資訊即時呈現
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+🔄 核心功能流程
 
-## Customize configuration
+資料串接連動（Props、emit）：
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. 首頁「租借服務」→ 場地租借列表頁（area-rental）
 
-## Project Setup
+2. 租借列表頁篩選（人數/hashtag）→ 過濾場地卡片
+   
+3. 收藏場地 → 自動帶入合作提案表單（cooperation）
+   
+4. 合作提案頁顯示已收藏場地標籤與名稱
+   
+🧩 元件化架構
 
-```sh
-npm install
-```
+程式碼簡潔、維護效率提升、開發一致性
 
-### Compile and Hot-Reload for Development
+📦 狀態管理
 
-```sh
-npm run dev
-```
+1.Composables 組合式函式：
 
-### Compile and Minify for Production
+2.useRentalStore - 場地資料管理、篩選邏輯
 
-```sh
-npm run build
-```
+3.useBookmarkStore - 收藏功能狀態管理（跨頁面同步）
+
+4.資料流：租借列表收藏 → 儲存至 BookmarkStore → 合作提案頁讀取顯示
+
+🛠️ 核心技術
+
+1.Vue 3 - Composition API、<script setup>、defineModel 雙向綁定
+
+2.Vite - 快速建置與開發
+
+3.Vue Router - 動態路由（場地詳細頁 :id）
+
+4.Tailwind CSS - 完全響應式設計（手機/平板/桌機）
+
+5.RWD變版
+
+📚 主要套件
+
+1.Swiper - 圖片輪播（一般輪播、無間斷跑馬燈）
+
+2.Rellax - 視差滾動效果
+
+3.SweetAlert2 - 表單送出確認對話框
+
+4.Iconify - 統一圖標管理（@iconify/vue）
