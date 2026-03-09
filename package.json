@@ -30,8 +30,14 @@
   "devDependencies": {
     "@iconify/vue": "^5.0.0",
     "@vitejs/plugin-vue": "^6.0.3",
+    "postcss-html": "^1.8.1",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "stylelint": "^17.4.0",
+    "stylelint-config-recommended-vue": "^1.6.1",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-tailwindcss": "^1.0.1",
+    "stylelint-order": "^7.0.1",
     "vite": "^7.3.0",
     "vite-plugin-vue-devtools": "^8.0.5"
   }

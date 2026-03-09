@@ -1,0 +1,8 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "tailwindAttributes": ["class", "className", ".*Class"],
+  "tailwindFunctions": ["clsx", "twMerge"],
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none"
+}
