@@ -1,25 +1,38 @@
 <script setup>
 import GeneralFrame from '@/components/GeneralFrame.vue'
-import RentalCard from '@/components/RentalCard.vue'
-import SearchBar from '@/components/SearchBar.vue'
+import BannerRentalCard from '@/components/BannerRentalCard.vue'
 import BaseIcon from '@/components/BaseIcon.vue'
-import { useRentalStore } from '@/composables/useRentalStore.js'
-
 import { ref, onMounted } from 'vue'
 
-const { state, filteredList, selectFilters } = useRentalStore()
+// 直接引入 JSON 檔案（陣列格式）
+import rawAdData from '@/assets/json/banner-rental-data.json' 
+
+// 廣告資料就是引入的 JSON
+const adList = ref(rawAdData)
+
+// 測試用：看看資料有沒有進來
+console.log('📦 原始資料:', rawAdData)
+console.log('📦 adList 長度:', adList.value.length)
+console.log('📦 第一筆資料:', adList.value[0])
+
+// 引導視窗（如果需要）
 const showGuide = ref(false)
 
-// 頁面載入時自動顯示
 onMounted(() => {
-  showGuide.value = true
+  const hasShownGuide = sessionStorage.getItem('hasShownAdGuide')
+  if (!hasShownGuide) {
+    showGuide.value = true
+    sessionStorage.setItem('hasShownAdGuide', 'true')
+  }
 })
 
 const closeGuide = () => {
   showGuide.value = false
 }
 </script>
+
 <template>
+  <!-- 引導視窗 -->
   <div
     v-if="showGuide"
     @click.self="closeGuide"
@@ -28,92 +41,78 @@ const closeGuide = () => {
     <div
       class="relative flex w-[90%] max-w-md flex-col items-center gap-6 rounded-2xl bg-white p-8 text-center shadow-2xl md:p-12"
     >
-      <!-- 提示圖示與文字 -->
-      <div
-        class="flex h-20 w-20 items-center justify-center rounded-full bg-[#0D2953]"
-      >
-        <BaseIcon
-          name="material-symbols:bookmark-outline"
-          class="text-4xl text-white"
-        />
+      <div class="flex h-20 w-20 items-center justify-center rounded-full bg-[#0D2953]">
+        <BaseIcon name="material-symbols:ads-click" class="text-4xl text-white" />
       </div>
-      <h3 class="text-2xl font-bold text-[#0D2953]">溫馨提醒</h3>
+      <h3 class="text-2xl font-bold text-[#0D2953]">廣告租借</h3>
       <p class="text-lg leading-relaxed text-gray-600">
-        看到心儀的場地嗎？<br />
-        點擊卡片右上角的 <span class="font-bold text-[#C62828]">收藏</span>
-        <br />
-        即可將場地加入您的「合作提案」清單喔！
+        選擇您想要的廣告位置<br />
+        點擊卡片查看詳細資訊<br />
+        即可提出廣告租借提案
       </p>
-      <!-- 只保留這個主要的關閉按鈕 -->
       <button
         @click="closeGuide"
         class="mt-4 rounded-full bg-[#0D2953] px-8 py-3 font-bold text-white shadow-lg transition-all hover:bg-[#1a3a6d] active:scale-95"
       >
-        我知道了，開始探索
+        我知道了，開始瀏覽
       </button>
     </div>
   </div>
-  <!-- bg -->
-  <GeneralFrame titleLeft="租借" titleRight="服務" subTitle1="廣告租借">
-    <!-- search -->
-    <div class="relative h-40 w-full">
-      <div
-        class="py-15 absolute bottom-0 left-1/2 flex h-auto w-3/4 -translate-x-1/2 translate-y-[65%] flex-col items-center justify-center gap-12 bg-white px-10 shadow-[2px_4px_10px_rgba(0,0,0,0.25)]"
-      >
-        <p class="font-inter text-[24px] font-bold">
-          從現在開始，選擇容納人數與用途hashtag，一步一步，把想法變成一個真的會發生的畫面。
-        </p>
-        <SearchBar
-          v-model:guests="state.draftGuests"
-          v-model:hashtag="state.draftHashtag"
-          @search="selectFilters"
-        />
-      </div>
+
+  <!-- 主要內容 -->
+  <GeneralFrame titleLeft="廣告" titleRight="租借" subTitle1="廣告租借">
+    <!-- 標題區塊 -->
+    <div class="relative mb-8 mt-5 px-4 md:mt-10 md:px-8 lg:px-14">
+      <p class="mt-2 text-white
+      ">
+        共 {{ adList.length }} 個廣告位置
+      </p>
     </div>
+
+    <!-- 除錯資訊：如果沒有資料顯示警告 -->
+    <div 
+      v-if="adList.length === 0" 
+      class="mx-4 mb-5 rounded bg-yellow-100 p-4 md:mx-8 lg:mx-14"
+    >
+      <p class="font-bold text-yellow-800">⚠️ 沒有廣告資料</p>
+      <p class="text-yellow-700">請檢查 JSON 檔案是否存在於 src/assets/json/banner-rental-data.json</p>
+    </div>
+
     <!-- Cards -->
-    <!-- Cards -->
-    <div class="w-full rounded-[16px] bg-white px-14 pb-10 pt-60">
-      <!-- 有搜尋結果 -->
+    <div class="w-full rounded-[16px] bg-white p-8 pb-10 md:p-15 lg:px-14">
       <div
-        v-if="filteredList.length"
-        class="rwd grid auto-rows-fr place-items-center gap-12"
+        v-if="adList.length > 0"
+        class="grid grid-cols-1 place-items-center gap-6 auto-rows-fr
+               md:grid-cols-2 md:gap-8
+               lg:grid-cols-3 lg:gap-10
+               xl:grid-cols-4 xl:gap-12"
       >
-        <RentalCard
-          v-for="[id, item] in filteredList"
-          :key="id"
-          :id="id"
-          :name="item.name"
-          :img="item.imgURL"
-          :tags="item.tag.split('、')"
-          :floor="item.floor"
+        <BannerRentalCard
+          v-for="ad in adList"
+          :key="ad.id"
+          :id="ad.id"
+          :name="ad.name"
+          :area_ping="ad.area_ping"
+          :deposit="ad.deposit"
+          :img="ad.imgURL"
+          :tags="ad.tag.split('、')"
+          :floor="ad.floor"
+          class="w-full"
         />
       </div>
-      <!-- 沒有搜尋結果 -->
-      <div
-        v-else
+      
+      <!-- 沒有資料時顯示 -->
+      <div 
+        v-else 
         class="flex flex-col items-center justify-center py-20 text-gray-500"
       >
-        <p class="mb-4 text-2xl font-bold">找不到符合條件的場地 😢</p>
-        <p class="text-lg">試試調整人數或搜尋關鍵字吧</p>
+        <p class="mb-4 text-2xl font-bold">暫無廣告位置</p>
+        <p class="text-lg">請稍後再來查看</p>
       </div>
     </div>
   </GeneralFrame>
 </template>
 
 <style scoped>
-.rwd {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-@media (min-width: 1260px) {
-  .rwd {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1500px) {
-  .rwd {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
+/* 不需要額外樣式，全部用 Tailwind */
 </style>

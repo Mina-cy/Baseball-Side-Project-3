@@ -1,6 +1,8 @@
 <script setup>
 import { ref,  computed } from 'vue'
+import { RouterLink } from 'vue-router' 
 import BaseInput from '@/components/BaseInput.vue'
+import BaseIcon from '@/components/BaseIcon.vue'  
 import HashTag from '@/components/HashTag.vue'
 import GeneralFrame from '@/components/GeneralFrame.vue'
 import Swal from 'sweetalert2'
@@ -57,14 +59,36 @@ const modules = [Autoplay, Pagination, Navigation]
 const validateForm = () => {
   const newErrors = {}
   
-  if (!formData.value.email.includes('@')) {
-    newErrors.email = '請輸入有效的信箱'
+  // 姓名驗證
+  if (!formData.value.name) {
+    newErrors.name = '請輸入姓名'
   }
   
-  if (formData.value.tel && formData.value.tel.length !== 10) {
+  // 公司驗證
+  if (!formData.value.company) {
+    newErrors.company = '請輸入公司名稱'
+  }
+  
+  // Email 驗證
+  if (!formData.value.email) {
+    newErrors.email = '請輸入電子郵件'
+  } else if (!formData.value.email.includes('@')) {
+    newErrors.email = '請輸入有效的信箱（需包含 @）'
+  }
+  
+  // 電話驗證（必填）
+  if (!formData.value.tel) {
+    newErrors.tel = '請輸入電話號碼'
+  } else if (formData.value.tel.length !== 10) {
     newErrors.tel = '電話號碼需要10碼'
   }
   
+  // 地址驗證（必填）
+  if (!formData.value.address) {
+    newErrors.address = '請輸入地址'
+  }
+  
+  // 統一編號（選填，但如果填了要8碼）
   if (formData.value.taxID && formData.value.taxID.length !== 8) {
     newErrors.taxID = '統一編號需要8碼'
   }
@@ -75,7 +99,6 @@ const validateForm = () => {
 
 // 送出邏輯
 const handleSubmit = () => {
-  if (!validateForm()) return
   
   Swal.fire({
     title: '確定要送出提案嗎？',
@@ -251,7 +274,6 @@ const handleSubmit = () => {
           <!-- ========== 送出按鈕區塊 ========== -->
           <div class="mt-10 flex w-full flex-col items-center gap-2 sm:flex-row sm:justify-between sm:gap-5">
             <div class="flex flex-col gap-5 md:flex-row">
-              <!-- 下載按鈕們... 保持你原本的 -->
               <div class="cursor-pointer p-3 text-center shadow-[3px_3px_5px_rgba(0,0,0,0.4)] md:w-[200px] md:text-[16px] lg:w-[240px] lg:text-[20px]">
                 進徹場說明手冊
                 <BaseIcon name="teenyicons:pdf-solid" class="md:text-md ml-2 lg:text-2xl" />
@@ -271,7 +293,6 @@ const handleSubmit = () => {
               <BaseIcon name="maki:arrow" class="md:text-md ml-2 lg:text-2xl" />
             </button>
           </div>
-
         </div>
       </div>
 

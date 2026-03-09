@@ -17,4 +17,3 @@ defineProps({
     </component>
 </template>
 
-<style scoped></style>

@@ -1,4 +1,5 @@
 import '@/assets/main.css'
+import 'sweetalert2/dist/sweetalert2.min.css'  // ⚠️ 加入這行！
 
 import { createApp } from 'vue'
 // import { createPinia } from 'pinia'

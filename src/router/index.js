@@ -1,15 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(
-    import.meta.env.BASE_URL),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
       name: 'home',
       component: () => import('@/views/HomeView.vue')
     },
-     {
+    {
       path: '/news',
       name: 'news',
       component: () => import('@/views/NewsView.vue')
@@ -35,7 +34,7 @@ const router = createRouter({
       component: () => import('@/views/AreaRentalInnerView.vue')
     },
     {
-      path: '/banner-rental-inner',
+      path: '/banner-rental-inner/:id',
       name: 'banner-rental-inner',
       component: () => import('@/views/BannerRentalInnerView.vue')
     },
@@ -68,13 +67,13 @@ const router = createRouter({
       path: '/field-bleacher',
       name: 'field-bleacher',
       component: () => import('@/views/FieldBleacherView.vue')
-    },
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) return savedPosition
     return { top: 0, left: 0 }
     // 想要滑順可以用return { top: 0, left: 0, behavior: 'smooth' }
-  },
+  }
 })
 
 export default router

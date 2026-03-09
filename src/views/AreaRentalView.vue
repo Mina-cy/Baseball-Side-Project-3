@@ -12,7 +12,15 @@ const showGuide = ref(false)
 
 // 頁面載入時自動顯示
 onMounted(() => {
-  showGuide.value = true
+  // 檢查 sessionStorage 裡有沒有記錄
+  const hasShownGuide = sessionStorage.getItem('hasShownGuide')
+  
+  if (!hasShownGuide) {
+    // 如果沒顯示過，就顯示
+    showGuide.value = true
+    // 記錄已經顯示過了
+    sessionStorage.setItem('hasShownGuide', 'true')
+  }
 })
 
 const closeGuide = () => {
@@ -55,6 +63,13 @@ const closeGuide = () => {
   </div>
   <!-- bg -->
   <GeneralFrame titleLeft="租借" titleRight="服務" subTitle1="區域租借">
+     <!-- 標題區塊 -->
+    <div class="relative mb-8 mt-5 px-4 md:mt-10 md:px-8 lg:px-14">
+      <p class="mt-2 text-white
+      ">
+        共 {{ filteredList.length }} 個場地位置
+      </p>
+    </div>
     <!-- search -->
     <div class="relative h-40 w-full md:h-40">
       <div
@@ -105,18 +120,28 @@ const closeGuide = () => {
 
 <style scoped>
 .rwd {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-columns: repeat(1, minmax(0, 1fr));  /* 手機：1欄 */
 }
 
-@media (min-width: 950px) {
+/* 平板：2欄 */
+@media (min-width: 768px) {
   .rwd {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (min-width: 1500px) {
+/* 桌機：3欄 */
+@media (min-width: 1024px) {
   .rwd {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* 大螢幕：4欄 */
+@media (min-width: 1440px) {
+  .rwd {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
 </style>
+

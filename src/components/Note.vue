@@ -12,7 +12,3 @@ p-5 font-bold text-[24px] md:text-[26px] xl:text-[30px]">
     <slot></slot>
 </div>
 </template>
-
-<style scoped>
-
-</style>

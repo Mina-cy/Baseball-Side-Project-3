@@ -1,0 +1,42 @@
+[
+  {
+    "id": "outfield-ad",
+    "category": "外野廣告",
+    "name": "外野A1-A9、B1-B3",
+    "area_ping": "寬1000cm×高500cm",
+    "deposit": "NT$200,000",
+    "tag": "帆布吊掛",
+    "floor": "1F",
+    "imgURL": "banner1.jpg"
+  },
+  {
+    "id": "infield-ad-1",
+    "category": "內野廣告",
+    "name": "內野（三壘側）C1–C3",
+    "area_ping": "寬1400cm×高700cm",
+    "deposit": "NT$200,000",
+    "tag": "帆布吊掛",
+    "floor": "1F",
+    "imgURL": "banner2.jpg"
+  },
+  {
+    "id": "infield-ad-2",
+    "category": "內野廣告",
+    "name": "內野（一壘側）C4–C6",
+    "area_ping": "寬1500cm×高400cm",
+    "deposit": "NT$200,000",
+    "tag": "帆布吊掛",
+    "floor": "1F",
+    "imgURL": "banner3.jpg"
+  },
+  {
+    "id": "parking-ad",
+    "category": "立場停車場廣告",
+    "name": "外牆 A1–A6、B-1、C-1",
+    "area_ping": "寬30000cm×高10000cm",
+    "deposit": "NT$2,000,000",
+    "tag": "大型戶外廣告牆",
+    "floor": "1F",
+    "imgURL": "banner4.jpg"
+  }
+]
