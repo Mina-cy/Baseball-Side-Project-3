@@ -1,8 +1,11 @@
 <script setup>
 import BookmarkBtn from '@/components/BookmarkBtn.vue'
+import { useBookmarkStore } from '@/composables/useBookmarkStore.js'  
 import BaseIcon from '@/components/BaseIcon.vue'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+
+const { toggle } = useBookmarkStore()
 
 const props = defineProps({
   id: {
@@ -32,32 +35,31 @@ const props = defineProps({
   img: {
     type: String,
     required: true
-  }
+  },
+   isBookmarked: { type: Boolean, default: false }  
 })
 
 // 圖片路徑（根據你的實際存放位置調整）
 const imgSrc = computed(() => `/json-image-banner/${props.img}`)
 
-// 格式化價格顯示（移除 NT$ 後加上空格）
+// 格式化價格顯示
 const formattedDeposit = computed(() => {
   if (!props.deposit) return ''
   return props.deposit.replace('NT$', 'NT$ ')
 })
+const handleToggle = () => {
 
-// 測試用：看看 props 有沒有傳進來
-console.log('BannerRentalCard props:', {
-  id: props.id,
-  name: props.name,
-  area_ping: props.area_ping,
-  deposit: props.deposit,
-  tags: props.tags,
-  floor: props.floor,
-  img: props.img
-})
+  toggle(props.id, 'ad')  // ✅ 確保有第二個參數 'ad'
+
+  // 馬上檢查 localStorage
+  setTimeout(() => {
+    const data = JSON.parse(localStorage.getItem('rental:bookmarks'))
+  }, 100)
+}
 </script>
 
 <template>
-  <div
+  <div 
     class="group flex h-full w-full flex-col bg-white p-4 shadow-[2px_4px_10px_rgba(0,0,0,0.25)] transition-all duration-300 hover:bg-[#214F83] hover:text-white sm:p-6"
   >
     <!-- 標題列：廣告名稱 + 收藏按鈕 -->
@@ -65,7 +67,10 @@ console.log('BannerRentalCard props:', {
       <p class="text-sm font-bold sm:text-base md:text-lg">
         {{ name }}
       </p>
-      <BookmarkBtn :id="props.id" />
+      <BookmarkBtn  
+      :id="props.id"
+      type="ad" 
+        @toggle="handleToggle" />
     </div>
 
     <!-- 圖片 -->

@@ -3,15 +3,21 @@ import BookmarkBtn from '@/components/BookmarkBtn.vue'
 import BaseIcon from '@/components/BaseIcon.vue'
 import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useBookmarkStore } from '@/composables/useBookmarkStore.js'  
 
 const props = defineProps({
   id: { type: String, required: true },
   name: { type: String, default: '辦公室-138' },
   tags: { type: Array, default: () => ['辦公室', '需要桌椅'] },
   floor: { type: String, default: '1F' },
-  img: { type: String, default: 'coop-slider-1.jpg' }
+  img: { type: String, default: 'coop-slider-1.jpg' },
+  isBookmarked: { type: Boolean, default: false }  
 })
+const { toggle } = useBookmarkStore() 
 
+const handleToggle = () => {  // 加入點擊事件
+  toggle(props.id, 'area')
+}
 const imgSrc = computed(() => `/json-image/${props.img}`)
 </script>
 
@@ -26,7 +32,8 @@ const imgSrc = computed(() => `/json-image/${props.img}`)
     <!-- 標題列：球場外圍 + 收藏按鈕 -->
     <div class="mb-2 flex items-center justify-between sm:mb-4">
       <p class="text-sm font-bold sm:text-base md:text-lg">球場外圍</p>
-      <BookmarkBtn :id="props.id" />
+      <BookmarkBtn :id="props.id" type="area" 
+        @toggle="handleToggle"  />
     </div>
 
     <!-- 圖片 -->

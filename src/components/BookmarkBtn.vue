@@ -4,20 +4,24 @@ import Swal from "sweetalert2"
 import { useBookmarkStore } from "@/composables/useBookmarkStore.js"
 
 const props = defineProps({
-  id: { type: String, required: true },
+  id: { 
+    type: String, 
+    required: true 
+  },
+  type: {  
+    default: 'area'  
+  }
 })
 
 const { toggle, isSaved } = useBookmarkStore()
-
-const isBookmarked = computed(() => isSaved(props.id))
+const isBookmarked = computed(() => isSaved(props.id, props.type))
 
 const handleBookmark = (e) => {
-  // 如果 BookmarkBtn 在 RouterLink 裡，避免點了直接跳頁
   e?.stopPropagation?.()
   e?.preventDefault?.()
 
   const willSave = !isBookmarked.value
-  toggle(props.id)
+  toggle(props.id, props.type)
 
   if (willSave) {
     Swal.fire({

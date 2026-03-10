@@ -4,11 +4,13 @@ import RentalCard from '@/components/RentalCard.vue'
 import SearchBar from '@/components/SearchBar.vue'
 import BaseIcon from '@/components/BaseIcon.vue'
 import { useRentalStore } from '@/composables/useRentalStore.js'
-
+import { useBookmarkStore } from '@/composables/useBookmarkStore.js'  
 import { ref, onMounted } from 'vue'
 
 const { state, filteredList, selectFilters } = useRentalStore()
 const showGuide = ref(false)
+const { isSaved } = useBookmarkStore()  
+
 
 // 頁面載入時自動顯示
 onMounted(() => {
@@ -103,6 +105,7 @@ const closeGuide = () => {
           :img="item.imgURL"
           :tags="item.tag.split('、')"
           :floor="item.floor"
+          :is-bookmarked="isSaved(id, 'area')"
           class="mx-auto w-full max-w-[500px]"
         />
       </div>

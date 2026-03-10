@@ -1,6 +1,7 @@
 <script setup>
 defineProps({
   label: String, // 顯示標籤，例如："申請人姓名"
+  name: String,
   required: Boolean, // 是否必填（顯示紅星號）
   error: String, // 錯誤訊息
   type: {

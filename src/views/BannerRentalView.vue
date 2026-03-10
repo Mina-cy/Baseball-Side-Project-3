@@ -3,17 +3,14 @@ import GeneralFrame from '@/components/GeneralFrame.vue'
 import BannerRentalCard from '@/components/BannerRentalCard.vue'
 import BaseIcon from '@/components/BaseIcon.vue'
 import { ref, onMounted } from 'vue'
-
-// 直接引入 JSON 檔案（陣列格式）
+import { useBookmarkStore } from '@/composables/useBookmarkStore.js' 
 import rawAdData from '@/assets/json/banner-rental-data.json' 
 
 // 廣告資料就是引入的 JSON
 const adList = ref(rawAdData)
 
-// 測試用：看看資料有沒有進來
-console.log('📦 原始資料:', rawAdData)
-console.log('📦 adList 長度:', adList.value.length)
-console.log('📦 第一筆資料:', adList.value[0])
+// 加入收藏 store
+const { isSaved } = useBookmarkStore()
 
 // 引導視窗（如果需要）
 const showGuide = ref(false)
@@ -97,6 +94,7 @@ const closeGuide = () => {
           :img="ad.imgURL"
           :tags="ad.tag.split('、')"
           :floor="ad.floor"
+             :is-bookmarked="isSaved(ad.id, 'ad')"  
           class="w-full"
         />
       </div>
@@ -112,7 +110,3 @@ const closeGuide = () => {
     </div>
   </GeneralFrame>
 </template>
-
-<style scoped>
-/* 不需要額外樣式，全部用 Tailwind */
-</style>

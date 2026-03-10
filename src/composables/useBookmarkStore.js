@@ -1,39 +1,77 @@
-import { reactive, computed, watch } from "vue"
+import { reactive, computed, watch } from 'vue'
 
-const KEY = "rental:bookmarks"
+const KEY = 'rental:bookmarks'
 
 const state = reactive({
-  // 用 Set 存 id：快速判斷有沒有收藏
-  ids: new Set(),
+  // 儲存：{ area: Set(), ad: Set() }
+  area: new Set(), // 區域場地
+  ad: new Set()
 })
 
 // 初始化：從 localStorage 讀回來
 const saved = localStorage.getItem(KEY)
 if (saved) {
   try {
-    const arr = JSON.parse(saved)
-    if (Array.isArray(arr)) state.ids = new Set(arr)
+    const obj = JSON.parse(saved)
+    // 轉換回 Set
+    state.area = new Set(obj.area || [])
+    state.ad = new Set(obj.ad || [])
   } catch {}
 }
 
 // 持久化：每次變動就寫回 localStorage
 watch(
-  () => Array.from(state.ids),
-  (arr) => localStorage.setItem(KEY, JSON.stringify(arr)), { deep: true }
+  () => ({
+    area: Array.from(state.area), 
+    ad: Array.from(state.ad)
+  }),
+  (obj) => {
+     localStorage.setItem(KEY, JSON.stringify(obj))
+  },
+  
+  { deep: true }
 )
 
-function toggle(id) {
+
+// 切換收藏
+function toggle(id, type = 'area') {
+  console.log('🔄 toggle 被呼叫:', id, type) 
+  console.log('state 目前:', {
+    area: Array.from(state.area),
+    ad: Array.from(state.ad)
+  })
   if (!id) return
-  if (state.ids.has(id)) state.ids.delete(id)
-  else state.ids.add(id)
+  if (state[type].has(id)) {
+    state[type].delete(id)
+
+  } else {
+    state[type].add(id)
+   
+  }
 }
 
-function isSaved(id) {
-  return state.ids.has(id)
+// 檢查是否收藏
+function isSaved(id, type = 'area') {
+  return state[type]?.has(id) || false
 }
 
-const list = computed(() => Array.from(state.ids))
+// 取得某類型的收藏列表
+function getList(type = 'area') {
+  return Array.from(state[type] || [])
+}
+
+// 取得所有收藏
+const allLists = computed(() => ({
+  area: Array.from(state.area),
+  ad: Array.from(state.ad)      
+}))
 
 export function useBookmarkStore() {
-  return { state, toggle, isSaved, list }
+  return {
+    state,
+    toggle,
+    isSaved,
+    getList,
+    allLists
+  }
 }
