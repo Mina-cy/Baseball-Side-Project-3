@@ -17,8 +17,8 @@ import ParallaxSection from '@/components/ParallaxSection.vue'
 import calendar from '@/assets/img/calendar.svg'
 import FB from '@/assets/img/FB.svg'
 import { useRentalStore } from '@/composables/useRentalStore.js'
-import { ref, onMounted } from 'vue'
-const { state, filteredList, selectFilters } = useRentalStore()
+import { ref } from 'vue'
+const { state, selectFilters } = useRentalStore()
 
 const showGuide = ref(false)
 </script>
