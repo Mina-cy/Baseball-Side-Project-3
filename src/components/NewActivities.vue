@@ -38,7 +38,7 @@ const cardStyle = computed(() => {
 
 <template>
   <div
-    class="h-[80px] w-auto cursor-pointer shadow-[3px_3px_5px_rgba(0,0,0,0.4)] active:scale-95 sm:h-[100px]"
+    class="h-[80px] w-auto cursor-pointer shadow-[3px_3px_5px_rgba(0,0,0,0.4)] hover:scale-98 active:scale-95 sm:h-[100px]"
   >
     <div class="flex h-full items-center">
       <div
