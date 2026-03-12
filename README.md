@@ -56,7 +56,7 @@
 | **SweetAlert2** | 表單送出確認對話框 |
 | **Iconify** | 統一圖標管理 |
 | **Tailwind CSS** | 實現完全響應式設計 |
-| **AOS (Animate On Scroll)** | 滾動進場動畫效果 |
+
 
 ## 🧩 核心技術亮點
 
