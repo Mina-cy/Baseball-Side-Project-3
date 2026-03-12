@@ -1,58 +1,147 @@
-📝 專案簡介
-這是一個針對台中洲際棒球場官方網站的全面改版專案（簡稱 洲際）。在深入研究原網站後我們發現洲際最核心的TA其實並非球迷，而是有活動舉辦需求需要大型場地租借的「活動廠商」。因此我們的改版目標出了最基本的首頁外會加強租借服務、合作提案頁面的呈現，強化視覺體驗，並優化了各項功能的操作流程，讓「活動廠商」能夠更直覺地獲取球場資訊、租借場地。
+# ⚾ 台中洲際棒球場官方網站改版
 
-⚾ 首頁特色與棒球元素融合
+![首頁截圖](./screenshots/homepage.png)
 
-視覺設計：棒球縫線造型標題、球場平面圖 SVG 互動展示、本壘板造型Banner影片加深使用者帶入感。
+## 📋 專案簡介
 
-沉浸式體驗：球場紅色顆粒感背景猶如戰場上紅土、視差滾動效果增加畫面動態感、自動輪播精彩賽事影像。
+本專案為台中洲際棒球場官方網站的全面改版。原網站內容平淡、資訊重複散落各頁面，未能有效傳遞場地價值。深入分析後發現，**核心目標用戶並非一般球迷，而是有大型場地租借需求的「活動廠商」**。
 
-球場導覽：分層展示內場/外圍區域，經緯度資訊即時呈現
+因此改版目標除優化首頁外，重點強化**租借服務**與**合作提案**頁面，透過視覺升級與流程優化，讓活動廠商能更直覺地獲取資訊、租借場地。
 
-🔄 核心功能流程
+## 🎯 改版重點
 
-資料串接連動（Props、emit）：
+- **重新定義目標用戶**：從球迷轉向活動廠商
+- **資訊架構重組**：整合散落頁面的重複資訊
+- **流程優化**：簡化場地租借與合作提案路徑
+- **視覺升級**：融入棒球元素，強化品牌識別
 
-1. 首頁「租借服務」→ 場地租借列表頁（area-rental）
+## ✨ 核心功能
 
-2. 租借列表頁篩選（人數/hashtag）→ 過濾場地卡片
-   
-3. 收藏場地 → 自動帶入合作提案表單（cooperation）
-   
-4. 合作提案頁顯示已收藏場地標籤與名稱
-   
-🧩 元件化架構
+- **場地篩選**：依人數、Hashtag 過濾合適場地
+- **收藏功能**：跨頁面同步收藏清單
+- **合作提案**：收藏場地自動帶入提案表單
+- **球場導覽**：分層展示內場/外圍區域，即時呈現經緯度
 
-程式碼簡潔、維護效率提升、開發一致性
+## 🛠️ 技術棧
 
-📦 狀態管理
+![Vue 3](https://img.shields.io/badge/Vue.js-3.x-4FC08D)
+![Vite](https://img.shields.io/badge/Vite-建置工具-646CFF)
+![Vue Router](https://img.shields.io/badge/Vue_Router-動態路由-42b883)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4)
+![Pinia](https://img.shields.io/badge/Pinia-狀態管理-yellow)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E)
 
-1.Composables 組合式函式：
+## 📦 主要套件
 
-2.useRentalStore - 場地資料管理、篩選邏輯
+| 套件 | 用途 |
+|------|------|
+| **Swiper** | 圖片輪播、無間斷跑馬燈 |
+| **Rellax** | 視差滾動效果 |
+| **SweetAlert2** | 表單送出確認對話框 |
+| **Iconify** | 統一圖標管理 |
+| **Tailwind CSS** | 實現完全響應式設計 |
+| **AOS (Animate On Scroll)** | 滾動進場動畫效果 |
 
-3.useBookmarkStore - 收藏功能狀態管理（跨頁面同步）
+## 🧩 核心技術亮點
 
-4.資料流：租借列表收藏 → 儲存至 BookmarkStore → 合作提案頁讀取顯示
+### 元件化架構
+- 採用可複用元件開發，提升程式碼簡潔度與維護效率
+- 透過 Props / emit 實現父子元件資料傳遞
 
-🛠️ 核心技術
+### 狀態管理
+使用 Composables 組合式函式管理跨頁面狀態：
+- **`useRentalStore`**：場地資料管理、篩選邏輯
+- **`useBookmarkStore`**：收藏功能跨頁面同步
 
-1.Vue 3 - Composition API、<script setup>、defineModel 雙向綁定
+**資料流**：租借列表收藏 → 儲存至 BookmarkStore → 合作提案頁讀取顯示
 
-2.Vite - 快速建置與開發
+### 視覺設計
+- **棒球元素融入**：縫線造型標題、SVG球場平面圖、本壘板Banner
+- **沉浸體驗**：紅色顆粒感背景、視差滾動、精彩賽事輪播
+- **完全響應式**：手機/平板/桌機完美適配（Tailwind RWD）
 
-3.Vue Router - 動態路由（場地詳細頁 :id）
+## 🔄 功能流程
 
-4.Tailwind CSS - 完全響應式設計（手機/平板/桌機）
+```
+首頁「租借服務」→ 場地租借列表頁
+                      ↓
+               篩選（人數/Hashtag）
+                      ↓
+                 收藏場地
+                      ↓
+       自動帶入合作提案表單
+                      ↓
+       提案頁顯示已收藏場地標籤
+```
 
-5.RWD變版
+## 🚀 線上 Demo
 
-📚 主要套件
+[👉 點此觀看 Live Demo](https://your-demo-url.vercel.app)
 
-1.Swiper - 圖片輪播（一般輪播、無間斷跑馬燈）
+## 📦 本地安裝
 
-2.Rellax - 視差滾動效果
+```bash
+# 克隆專案
+git clone https://github.com/Mina-cy/Baseball-Side-Project-3.git
 
-3.SweetAlert2 - 表單送出確認對話框
+# 進入專案目錄
+cd Baseball-Side-Project-3
 
-4.Iconify - 統一圖標管理（@iconify/vue）
+# 安裝依賴
+npm install
+
+# 啟動開發伺服器
+npm run dev
+```
+
+## 📁 專案結構
+
+```
+src/
+├── assets/              # 靜態資源（圖片、樣式）
+├── components/          # 可複用元件
+│   ├── Card.vue
+│   ├── Navbar.vue
+│   └── ...
+├── views/               # 頁面元件
+│   ├── HomeView.vue     # 首頁
+│   ├── AreaRental.vue   # 場地租借列表
+│   └── Cooperation.vue  # 合作提案
+├── stores/              # Pinia 狀態管理
+│   ├── useRentalStore.js
+│   └── useBookmarkStore.js
+├── composables/         # 組合式函式
+├── router/              # 路由配置
+│   └── index.js
+└── App.vue
+```
+
+## 💡 專案亮點
+
+- **用戶導向設計**：從「活動廠商」需求出發重新規劃功能
+- **完整資料串接**：實現收藏跨頁面同步、表單自動帶入
+- **沉浸式體驗**：棒球視覺元素貫穿全站，強化品牌識別
+- **元件化開發**：提升維護效率，確保開發一致性
+
+## 🔮 未來展望
+
+- 新增線上場地預訂與金流串接
+- 整合即時檔期查詢功能
+- 優化 SEO 提升搜尋能見度
+
+## 📞 聯絡作者
+
+- **作者**：廖晨妤
+- **Email**：minachenyu08@gmail.com
+- **GitHub**：[@https://github.com/Mina-cy]
+- **作品集**：[https://github.com/Mina-cy/Baseball-Side-Project-3.git]
+
+---
+
+## 📄 授權
+
+MIT License © 2024 廖晨妤
+
+---
+
+> **備註**：本專案為前端練習作品，非官方實際網站。
