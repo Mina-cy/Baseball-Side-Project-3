@@ -77,27 +77,49 @@ const modules = [Autoplay, Pagination, Navigation]
 const validateForm = () => {
   const newErrors = {}
 
-  if (!formData.value.name) newErrors.name = '請輸入姓名'
-  if (!formData.value.company) newErrors.company = '請輸入公司名稱'
+  // 姓名
+  if (!formData.value.name?.trim()) {
+    newErrors.name = '請輸入姓名'
+  }
 
-  if (!formData.value.email) {
+  // 公司
+  if (!formData.value.company?.trim()) {
+    newErrors.company = '請輸入公司名稱'
+  }
+
+  // 信箱
+  const email = formData.value.email?.trim()
+  if (!email) {
     newErrors.email = '請輸入電子郵件'
-  } else if (!formData.value.email.includes('@')) {
+  } else if (!email.includes('@')) {
     newErrors.email = '請輸入有效的信箱'
   }
 
-  if (!formData.value.tel) {
+  // 電話
+  const tel = formData.value.tel?.trim()
+  if (!tel) {
     newErrors.tel = '請輸入電話號碼'
-  } else if (formData.value.tel.length !== 10) {
-    newErrors.tel = '電話號碼需要10碼'
+  } else {
+    const digitsOnly = tel.replace(/\D/g, '')
+    if (digitsOnly.length !== 10) {
+      newErrors.tel = '電話號碼需要10碼'
+    }
   }
 
-  if (!formData.value.address) newErrors.address = '請輸入地址'
-
-  if (formData.value.taxID && formData.value.taxID.length !== 8) {
-    newErrors.taxID = '統一編號需要8碼'
+  // 地址
+  if (!formData.value.address?.trim()) {
+    newErrors.address = '請輸入地址'
   }
 
+  // 統一編號（選填）
+  if (formData.value.taxID?.trim()) {
+    const taxDigits = formData.value.taxID.replace(/\D/g, '')
+    if (taxDigits.length !== 8) {
+      newErrors.taxID = '統一編號需要8碼'
+    }
+  }
+
+  // ✅ 直接覆蓋舊錯誤，有問題的欄位才會顯示紅色
   errors.value = newErrors
   return Object.keys(newErrors).length === 0
 }
@@ -205,7 +227,7 @@ const handleSubmit = () => {
                 type="tel"
                 v-model="formData.tel"
                 placeholder="0912345678"
-                maxlength="10"
+                :maxlength="10"
                 :error="errors.tel"
               />
               <div class="md:col-span-2">
