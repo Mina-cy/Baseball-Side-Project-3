@@ -1,6 +1,6 @@
 # ⚾ 台中洲際棒球場官方網站改版
 
-![首頁截圖](./screenshots/homepage.jpg)
+![首頁截圖](./screenshots/homepage.png)
 
 ## 📋 專案簡介
 
