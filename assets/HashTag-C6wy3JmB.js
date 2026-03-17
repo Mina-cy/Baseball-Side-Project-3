@@ -1,0 +1,1 @@
+import{_ as s,o as a,c as o,a as r,r as n}from"./index-D0npbJjo.js";const c={},l={class:"bg-black px-3 text-white p-2 w-fit h-auto rounded-xl text-[16px] md:text-[20px]"};function x(e,t){return a(),o("div",l,[t[0]||(t[0]=r("i",{class:"fa-solid fa-hashtag text-[16px] md:text-[20px]"},null,-1)),n(e.$slots,"default")])}const p=s(c,[["render",x]]);export{p as H};
