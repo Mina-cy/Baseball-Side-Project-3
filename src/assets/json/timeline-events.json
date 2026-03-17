@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "year": "2006",
+    "date": "2006.11",
+    "title": "洲際棒球場正式啟用",
+    "description": "台中洲際棒球場完工啟用，成為台灣首座國際標準棒球場，可容納20,000名觀眾。",
+    "icon": "pi pi-star",
+    "color": "#0D2953",
+    "image": "2006-opening.jpg",
+    "category": "里程碑"
+  },
+  {
+    "id": 2,
+    "year": "2007",
+    "date": "2007.11",
+    "title": "世界盃棒球錦標賽",
+    "description": "首度舉辦國際級賽事，中華隊在此賽事中獲得第八名。",
+    "icon": "pi pi-flag",
+    "color": "#C62828",
+    "image": "2007-worldcup.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 3,
+    "year": "2012",
+    "date": "2012.03",
+    "title": "亞洲棒球錦標賽",
+    "description": "舉辦第26屆亞洲棒球錦標賽，日本隊奪冠，中華隊獲得亞軍。",
+    "icon": "pi pi-trophy",
+    "color": "#FFD700",
+    "image": "2012-asian.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 4,
+    "year": "2013",
+    "date": "2013.11",
+    "title": "榮獲「世界棒球之都」獎牌",
+    "description": "國際棒壘球總會於世界青棒賽開幕典禮中，公開頒發「世界棒球之都」獎牌，肯定台中市政府對棒球的貢獻。",
+    "icon": "pi pi-star-fill",
+    "color": "#0D2953",
+    "image": "2013-award.jpg",
+    "category": "榮譽"
+  },
+  {
+    "id": 5,
+    "year": "2015",
+    "date": "2015.11",
+    "title": "世界12強棒球賽",
+    "description": "首屆世界12強棒球賽，洲際棒球場做為主要場地之一，中華隊預賽在此舉行。",
+    "icon": "pi pi-flag-fill",
+    "color": "#C62828",
+    "image": "2015-premier12.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 6,
+    "year": "2019",
+    "date": "2019.11",
+    "title": "世界12強棒球賽複賽",
+    "description": "再度舉辦世界12強棒球賽，日本、韓國、中華隊等頂尖球隊同場較勁。",
+    "icon": "pi pi-flag-fill",
+    "color": "#C62828",
+    "image": "2019-premier12.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 7,
+    "year": "2020",
+    "date": "2020.08",
+    "title": "多功能運動中心啟用",
+    "description": "「台中迷你蛋」多功能運動中心正式啟用，結合運動、活動與城市地標功能。",
+    "icon": "pi pi-building",
+    "color": "#7B4E2F",
+    "image": "2020-miniegg.jpg",
+    "category": "場館升級"
+  },
+  {
+    "id": 8,
+    "year": "2023",
+    "date": "2023.03",
+    "title": "世界棒球經典賽",
+    "description": "舉辦2023世界棒球經典賽A組預賽，荷蘭、古巴、義大利、巴拿馬、中華隊齊聚洲際。",
+    "icon": "pi pi-globe",
+    "color": "#C62828",
+    "image": "2023-wbc.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 9,
+    "year": "2024",
+    "date": "2024.10",
+    "title": "LED大螢幕全面升級",
+    "description": "投入超過5000萬，將場內LED大螢幕升級為4K畫質，提供球迷更佳的觀賽體驗。",
+    "icon": "pi pi-desktop",
+    "color": "#0D2953",
+    "image": "2024-led.jpg",
+    "category": "場館升級"
+  },
+  {
+    "id": 10,
+    "year": "2025",
+    "date": "2025.12",
+    "title": "五月天演唱會",
+    "description": "首度舉辦大型演唱會，五月天「回到那一天」巡迴演唱會連續四天吸引10萬人次。",
+    "icon": "pi pi-music",
+    "color": "#EAD7B6",
+    "image": "2025-mayday.jpg",
+    "category": "演唱會"
+  }
+]

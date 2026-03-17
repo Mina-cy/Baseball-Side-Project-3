@@ -7,18 +7,14 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueDevTools(),
-    tailwindcss(),
-  ],
+  plugins: [vue(), vueDevTools(), tailwindcss()],
+  base: '/Baseball-Side-Project-3/',
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src',
-        import.meta.url))
-    },
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
   },
   server: {
-    open: true,
+    open: true
   }
 })

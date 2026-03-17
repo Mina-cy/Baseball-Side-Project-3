@@ -2,12 +2,12 @@
 import { ref, computed } from 'vue'
 import GeneralFrame from '@/components/GeneralFrame.vue'
 import NewActivities from '@/components/NewActivities.vue'
-import Pagination from '@/components/pagination.vue'
+import Pagination from '@/components/Pagination.vue'
 import newsData from '@/assets/json/news.json'
 
 // 分頁狀態
 const currentPage = ref(1)
-const itemsPerPage = 10  // 每頁顯示 5 筆
+const itemsPerPage = 10  // 每頁顯示 10 筆
 
 // 當前頁要顯示的資料
 const paginatedData = computed(() => {

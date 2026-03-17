@@ -1,7 +1,7 @@
 <script setup>
 import GeneralFrame from '@/components/GeneralFrame.vue'
 import aboutfield from '@/assets/img/aboutfield.png'
-import aboutfieldhistory from '@/assets/img/aboutfieldhistory.svg'
+
 </script>
 
 <template>
@@ -36,7 +36,7 @@ import aboutfieldhistory from '@/assets/img/aboutfieldhistory.svg'
           歷年精彩賽事
         </div>
         <div class="mt-10">
-          <img :src="aboutfieldhistory" alt="aboutfieldhistory" />
+
         </div>
         <div
           class="mt-15 block border-l-2 border-black pl-3 text-[28px] font-bold leading-none md:text-[36px]"
