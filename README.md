@@ -23,11 +23,27 @@
 - **球場導覽**：分層展示內場/外圍區域，即時呈現經緯度
 
 ## 🛠️ 技術棧
-
+### 🚀 核心框架
 ![Vue 3](https://img.shields.io/badge/Vue.js-3.x-4FC08D)
 ![Vite](https://img.shields.io/badge/Vite-建置工具-646CFF)
 ![Vue Router](https://img.shields.io/badge/Vue_Router-動態路由-42b883)
+![Props](https://img.shields.io/badge/Props-元件傳值-4FC08D)
+![Emit](https://img.shields.io/badge/Emit-事件傳遞-42b883)
+![defineModel](https://img.shields.io/badge/defineModel-雙向綁定-FF6B6B)
+
+### 🎨 前端樣式
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4)
+![RWD](https://img.shields.io/badge/RWD-響應式設計-27ae60)
+![HTML5](https://img.shields.io/badge/HTML5-語意化-E34F26)
+
+### 📦 主要套件
+![Swiper](https://img.shields.io/badge/Swiper-輪播-6332F6)
+![SweetAlert2](https://img.shields.io/badge/SweetAlert2-對話框-6B4F9C)
+![Iconify](https://img.shields.io/badge/Iconify-圖標庫-1769AA)
+![Rellax](https://img.shields.io/badge/Rellax-視差滾動-FF6B6B)
+
+### 🧩 架構設計
+![Composables](https://img.shields.io/badge/Composables-組合式函式-42b883)
 ![Pinia](https://img.shields.io/badge/Pinia-狀態管理-yellow)
 ![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E)
 
@@ -40,7 +56,7 @@
 | **SweetAlert2** | 表單送出確認對話框 |
 | **Iconify** | 統一圖標管理 |
 | **Tailwind CSS** | 實現完全響應式設計 |
-| **AOS (Animate On Scroll)** | 滾動進場動畫效果 |
+
 
 ## 🧩 核心技術亮點
 
@@ -76,7 +92,7 @@
 
 ## 🚀 線上 Demo
 
-[👉 點此觀看 Live Demo](https://your-demo-url.vercel.app)
+![專案Demo](./screenshots/demo.mp4)
 
 ## 📦 本地安裝
 
