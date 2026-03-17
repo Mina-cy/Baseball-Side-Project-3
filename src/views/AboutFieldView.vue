@@ -1,15 +1,17 @@
 <script setup>
 import GeneralFrame from '@/components/GeneralFrame.vue'
 import aboutfield from '@/assets/img/aboutfield.png'
+import EventTimeline from '@/components/EventTimeline.vue'
+import timelineEvents from '@/assets/json/timeline-events.json'
 
 </script>
 
 <template>
   <GeneralFrame titleLeft="關於" titleRight="洲際" subTitle1="球場簡介">
-    <div class="md:mt-15 mt-5 w-full rounded-[16px] bg-white">
-      <div class="md:p-15 p-10">
+    <div class="mt-5 w-full rounded-[16px] bg-white md:mt-15 shadow-lg">
+      <div class="p-10 md:p-15">
         <div
-          class="block border-l-2 border-black pl-3 text-[28px] font-bold leading-none md:text-[36px]"
+          class="block border-l-2 border-black pl-3 text-[28px] leading-none font-bold md:text-[36px]"
         >
           球場簡介
         </div>
@@ -18,7 +20,7 @@ import aboutfield from '@/assets/img/aboutfield.png'
             <img :src="aboutfield" alt="aboutfield" class="w-full" />
           </div>
           <div
-            class="flex flex-1 flex-col whitespace-pre-wrap p-4 text-[16px] sm:text-[24px] xl:p-2 xl:text-[22px] 2xl:p-5 2xl:text-[26px]"
+            class="flex flex-1 flex-col p-4 text-[16px] whitespace-pre-wrap sm:text-[24px] xl:p-2 xl:text-[22px] 2xl:p-5 2xl:text-[26px]"
           >
             <p class="indent-[2em]">
               臺中市洲際棒球場 ( 簡稱洲際 )
@@ -31,20 +33,20 @@ import aboutfield from '@/assets/img/aboutfield.png'
           </div>
         </div>
         <div
-          class="mt-15 block border-l-2 border-black pl-3 text-[28px] font-bold leading-none md:text-[36px]"
+          class="mt-15 block border-l-2 border-black pl-3 text-[28px] leading-none font-bold md:text-[36px]"
         >
           歷年精彩賽事
         </div>
         <div class="mt-10">
-
+          <EventTimeline :events="timelineEvents" />
         </div>
         <div
-          class="mt-15 block border-l-2 border-black pl-3 text-[28px] font-bold leading-none md:text-[36px]"
+          class="mt-15 block border-l-2 border-black pl-3 text-[28px] leading-none font-bold md:text-[36px]"
         >
           世界棒球之都
         </div>
         <div
-          class="flex flex-1 flex-col whitespace-pre-wrap p-8 text-[16px] sm:text-[24px] xl:text-[22px] 2xl:text-[26px]"
+          class="flex flex-1 flex-col p-8 text-[16px] whitespace-pre-wrap sm:text-[24px] xl:text-[22px] 2xl:text-[26px]"
         >
           <p class="indent-[28px]">
             世界棒球之都 -

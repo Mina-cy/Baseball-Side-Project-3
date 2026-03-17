@@ -18,44 +18,99 @@
     "description": "首度舉辦國際級賽事，中華隊在此賽事中獲得第八名。",
     "icon": "pi pi-flag",
     "color": "#C62828",
-    "image": "2007-worldcup.jpg",
+    "image": "2007-worldcup.jpeg",
     "category": "國際賽事"
   },
   {
     "id": 3,
+    "year": "2008",
+    "date": "2008.03",
+    "title": "奧運棒球最終資格排名賽",
+    "description": "舉辦2008年北京奧運棒球最終資格排名賽，中華隊成功取得奧運參賽資格。",
+    "icon": "pi pi-flag",
+    "color": "#C62828",
+    "image": "2008-olympic.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 4,
+    "year": "2009",
+    "date": "2009.08",
+    "title": "世界青少棒錦標賽",
+    "description": "舉辦世界青少棒錦標賽，培育國內年輕棒球選手。",
+    "icon": "pi pi-flag",
+    "color": "#C62828",
+    "image": "2009-youth.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 5,
+    "year": "2010",
+    "date": "2010.10",
+    "title": "洲際盃棒球錦標賽",
+    "description": "舉辦洲際盃棒球錦標賽，古巴隊奪冠，中華隊獲得第四名。",
+    "icon": "pi pi-flag",
+    "color": "#C62828",
+    "image": "2010-intercontinental.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 6,
+    "year": "2011",
+    "date": "2011.11",
+    "title": "亞洲職業棒球大賽",
+    "description": "舉辦亞洲職業棒球大賽，統一獅代表中華職棒出賽。",
+    "icon": "pi pi-trophy",
+    "color": "#FFD700",
+    "image": "2011-asia-series.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 7,
     "year": "2012",
     "date": "2012.03",
     "title": "亞洲棒球錦標賽",
     "description": "舉辦第26屆亞洲棒球錦標賽，日本隊奪冠，中華隊獲得亞軍。",
     "icon": "pi pi-trophy",
     "color": "#FFD700",
-    "image": "2012-asian.jpg",
+    "image": "2012-asian.jpeg",
     "category": "國際賽事"
   },
   {
-    "id": 4,
+    "id": 8,
     "year": "2013",
     "date": "2013.11",
     "title": "榮獲「世界棒球之都」獎牌",
     "description": "國際棒壘球總會於世界青棒賽開幕典禮中，公開頒發「世界棒球之都」獎牌，肯定台中市政府對棒球的貢獻。",
     "icon": "pi pi-star-fill",
     "color": "#0D2953",
-    "image": "2013-award.jpg",
+    "image": "2013-award.png",
     "category": "榮譽"
   },
   {
-    "id": 5,
+    "id": 9,
+    "year": "2014",
+    "date": "2014.11",
+    "title": "世界盃U21棒球錦標賽",
+    "description": "舉辦世界盃U21棒球錦標賽，中華隊在冠軍賽擊敗日本隊，奪下冠軍！",
+    "icon": "pi pi-trophy",
+    "color": "#FFD700",
+    "image": "2014-u21.jpeg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 10,
     "year": "2015",
     "date": "2015.11",
     "title": "世界12強棒球賽",
     "description": "首屆世界12強棒球賽，洲際棒球場做為主要場地之一，中華隊預賽在此舉行。",
     "icon": "pi pi-flag-fill",
     "color": "#C62828",
-    "image": "2015-premier12.jpg",
+    "image": "2015-premier12.jpeg",
     "category": "國際賽事"
   },
   {
-    "id": 6,
+    "id": 11,
     "year": "2019",
     "date": "2019.11",
     "title": "世界12強棒球賽複賽",
@@ -66,7 +121,7 @@
     "category": "國際賽事"
   },
   {
-    "id": 7,
+    "id": 12,
     "year": "2020",
     "date": "2020.08",
     "title": "多功能運動中心啟用",
@@ -77,36 +132,25 @@
     "category": "場館升級"
   },
   {
-    "id": 8,
+    "id": 13,
+    "year": "2022",
+    "date": "2022.10",
+    "title": "世界盃U23棒球錦標賽",
+    "description": "舉辦世界盃U23棒球錦標賽，中華隊獲得第三名。",
+    "icon": "pi pi-flag-fill",
+    "color": "#C62828",
+    "image": "2022-u23.jpg",
+    "category": "國際賽事"
+  },
+  {
+    "id": 14,
     "year": "2023",
     "date": "2023.03",
     "title": "世界棒球經典賽",
     "description": "舉辦2023世界棒球經典賽A組預賽，荷蘭、古巴、義大利、巴拿馬、中華隊齊聚洲際。",
     "icon": "pi pi-globe",
     "color": "#C62828",
-    "image": "2023-wbc.jpg",
+    "image": "2023-wbc.avif",
     "category": "國際賽事"
-  },
-  {
-    "id": 9,
-    "year": "2024",
-    "date": "2024.10",
-    "title": "LED大螢幕全面升級",
-    "description": "投入超過5000萬，將場內LED大螢幕升級為4K畫質，提供球迷更佳的觀賽體驗。",
-    "icon": "pi pi-desktop",
-    "color": "#0D2953",
-    "image": "2024-led.jpg",
-    "category": "場館升級"
-  },
-  {
-    "id": 10,
-    "year": "2025",
-    "date": "2025.12",
-    "title": "五月天演唱會",
-    "description": "首度舉辦大型演唱會，五月天「回到那一天」巡迴演唱會連續四天吸引10萬人次。",
-    "icon": "pi pi-music",
-    "color": "#EAD7B6",
-    "image": "2025-mayday.jpg",
-    "category": "演唱會"
   }
 ]
