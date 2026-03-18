@@ -43,10 +43,8 @@ function toggle(id, type = 'area') {
   if (!id) return
   if (state[type].has(id)) {
     state[type].delete(id)
-
   } else {
     state[type].add(id)
-   
   }
 }
 

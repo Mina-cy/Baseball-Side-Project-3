@@ -2,7 +2,7 @@
 import GeneralFrame from '@/components/GeneralFrame.vue'
 import aboutfield from '@/assets/img/aboutfield.png'
 import EventTimeline from '@/components/EventTimeline.vue'
-import timelineEvents from '@/assets/json/timeline-events.json'
+import timelinejson from '@/assets/json/timeline-events.json'
 
 </script>
 
@@ -38,7 +38,7 @@ import timelineEvents from '@/assets/json/timeline-events.json'
           歷年精彩賽事
         </div>
         <div class="mt-10">
-          <EventTimeline :events="timelineEvents" />
+          <EventTimeline :events="timelinejson" />
         </div>
         <div
           class="mt-15 block border-l-2 border-black pl-3 text-[28px] leading-none font-bold md:text-[36px]"

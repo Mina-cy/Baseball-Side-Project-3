@@ -45,7 +45,7 @@ const getImageUrl = (imageName) => {
             </span>
           </div>
           
-          <!-- 圖片顯示區（如果有圖片） -->
+          <!-- 圖片顯示區 -->
           <div v-if="item.image" class="mb-3 overflow-hidden rounded-lg">
             <img 
               :src="getImageUrl(item.image)" 
@@ -58,10 +58,6 @@ const getImageUrl = (imageName) => {
           <!-- 描述 -->
           <p class="text-gray-600 text-sm leading-relaxed">{{ item.description }}</p>
           
-          <!-- 底部圖示 -->
-          <div class="mt-3 flex justify-end">
-            <i :class="item.icon" class="text-gray-400"></i>
-          </div>
         </div>
       </d-timeline-item>
     </d-timeline>

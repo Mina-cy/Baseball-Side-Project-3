@@ -1,7 +1,6 @@
 import '@/assets/main.css'
 import 'sweetalert2/dist/sweetalert2.min.css'
 import { createApp } from 'vue'
-// import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 import '@fortawesome/fontawesome-free/css/all.css'
@@ -22,9 +21,9 @@ import 'swiper/css/pagination'
 /* 加入圖庫 */
 library.add(faMagnifyingGlass, faXmark, faBars)
 
-// ✅ 修正：使用正確的套件名稱
+// timeline套件
 import DevUI from 'vue-devui'
-import 'vue-devui/style.css' // 注意：樣式路徑也不同！
+import 'vue-devui/style.css' 
 
 const app = createApp(App)
 
