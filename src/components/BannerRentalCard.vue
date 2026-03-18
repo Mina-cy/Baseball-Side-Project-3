@@ -40,8 +40,9 @@ const props = defineProps({
 })
 
 // 圖片路徑（根據你的實際存放位置調整）
-const imgSrc = computed(() => `/json-image-banner/${props.img}`)
-
+const imgSrc = computed(() => {
+  return new URL(`../assets/img/json-image-banner/${props.img}`, import.meta.url).href
+})
 // 格式化價格顯示
 const formattedDeposit = computed(() => {
   if (!props.deposit) return ''
@@ -49,7 +50,7 @@ const formattedDeposit = computed(() => {
 })
 const handleToggle = () => {
 
-  toggle(props.id, 'ad')  // ✅ 確保有第二個參數 'ad'
+  toggle(props.id, 'ad')  
 
   // 馬上檢查 localStorage
   setTimeout(() => {

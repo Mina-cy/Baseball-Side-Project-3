@@ -9,11 +9,10 @@ const props = defineProps({
   },
 })
 
-const imgSrc = computed(() =>
-  props.detail?.imgURL
-    ? `/json-image/${props.detail.imgURL}`
-    : ''
-)
+const imgSrc = computed(() => {
+  if (!props.detail?.imgURL) return ''
+  return new URL(`../assets/img/json-image/${props.detail.imgURL}`, import.meta.url).href
+})
 </script>
 
 <template>

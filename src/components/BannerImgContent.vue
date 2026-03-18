@@ -11,8 +11,10 @@ const props = defineProps({
 })
 
 // 圖片路徑
-const imgSrc = computed(() => `/json-image-banner/${props.detail.imgURL}`)
-
+const imgSrc = computed(() => {
+  if (!props.detail?.imgURL) return ''
+  return new URL(`../assets/img/json-image-banner/${props.detail.imgURL}`, import.meta.url).href
+})
 // 格式化價格顯示
 const formattedDeposit = computed(() => {
   if (!props.detail.deposit) return ''

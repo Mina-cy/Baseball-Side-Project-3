@@ -1,5 +1,5 @@
 import { reactive, computed, watch } from 'vue'
-import rentalData from '/public/rental-data.json'
+import rentalData from '@/assets/json/rental-data.json'
 
 const state = reactive({
   data: rentalData,

@@ -10,7 +10,7 @@ const props = defineProps({
   name: { type: String, default: '辦公室-138' },
   tags: { type: Array, default: () => ['辦公室', '需要桌椅'] },
   floor: { type: String, default: '1F' },
-  img: { type: String, default: 'coop-slider-1.jpg' },
+  img: { type: String, default: '' },
   isBookmarked: { type: Boolean, default: false }  
 })
 const { toggle } = useBookmarkStore() 
@@ -18,7 +18,9 @@ const { toggle } = useBookmarkStore()
 const handleToggle = () => {  // 加入點擊事件
   toggle(props.id, 'area')
 }
-const imgSrc = computed(() => `/json-image/${props.img}`)
+const imgSrc = computed(() => {
+  return new URL(`../assets/img/json-image/${props.img}`, import.meta.url).href
+})
 </script>
 
 <template>
