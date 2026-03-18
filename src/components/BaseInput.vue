@@ -38,7 +38,7 @@ const handleInput = (e) => {
     <!-- 標籤 -->
     <label 
       :for="name" 
-      class="border-l-2 border-black pl-3 text-[18px] sm:text-[22px]"
+      class="border-l-2 border-black pl-3 tracking-[0.05em] text-[18px] sm:text-[22px]"
     >
       {{ label }}
       <span v-if="required" class="text-[#C62828]">*</span>
@@ -53,11 +53,11 @@ const handleInput = (e) => {
       :placeholder="placeholder"
       :maxlength="maxlength"
       @input="handleInput"
-      class="mt-3 w-full rounded border border-gray-300 px-2 py-1 text-[16px] outline-none transition-all focus:border-[#0D2953] focus:ring-1 focus:ring-[#0D2953] md:text-[22px]"
+      class="mt-[12px] w-full rounded border border-gray-300 px-[12px] py-[8px] text-[16px] outline-none transition-all focus:border-[#0D2953] focus:ring-1 focus:ring-[#0D2953] md:text-[22px]"
       :class="{ 'border-red-500': error }"
     />
     
     <!-- 錯誤訊息 -->
-    <p v-if="error" class="mt-1 text-sm text-red-500">{{ error }}</p>
+    <p v-if="error" class="mt-[4px] text-sm text-red-500">{{ error }}</p>
   </div>
 </template>

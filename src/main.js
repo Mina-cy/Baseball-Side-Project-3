@@ -21,13 +21,7 @@ import 'swiper/css/pagination'
 /* 加入圖庫 */
 library.add(faMagnifyingGlass, faXmark, faBars)
 
-// timeline套件
-import DevUI from 'vue-devui'
-import 'vue-devui/style.css' 
-
 const app = createApp(App)
-
 app.component('font-awesome-icon', FontAwesomeIcon)
 app.use(router)
-app.use(DevUI)
 app.mount('#app')

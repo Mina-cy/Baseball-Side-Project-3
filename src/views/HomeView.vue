@@ -21,21 +21,27 @@ import { ref } from 'vue'
 const { state, selectFilters } = useRentalStore()
 
 const showGuide = ref(false)
+const scrollTo = (id) => {
+  const element = document.getElementById(id)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+  }
+}
 </script>
 <template>
   <header class="relative">
     <div
-      class="top-160 sm:top-170 md:top-290 lg:top-320 xl:top-320 2xl:top-370 z-60 absolute h-[5400px] w-[40px] sm:h-[5520px] md:h-[6300px] md:w-[80px] lg:h-[6300px] lg:w-[90px] xl:h-[6000px] 2xl:h-[6200px] 2xl:w-[100px]"
+      class="absolute top-160 z-60 h-[5400px] w-[40px] sm:top-170 sm:h-[5520px] md:top-290 md:h-[6300px] md:w-[80px] lg:top-320 lg:h-[6300px] lg:w-[90px] xl:top-320 xl:h-[6000px] 2xl:top-370 2xl:h-[6200px] 2xl:w-[100px]"
     >
       <a
         target="_blank"
         href="https://www.facebook.com/TaichungIntercontinentalBaseballStadium/?locale=zh_TW"
       >
-        <img :src="FB" alt="FB" class="top-70 mt-100 sticky" />
+        <img :src="FB" alt="FB" class="sticky top-70 mt-100" />
       </a>
     </div>
     <!-- banner區域 -->
-    <div class="max-h-300 relative min-h-[600px] w-full">
+    <div class="relative max-h-300 min-h-[600px] w-full">
       <img
         :src="BannerPic1"
         alt="Banner"
@@ -43,17 +49,11 @@ const showGuide = ref(false)
       />
       <!-- banner 左邊btn -->
       <div
-        class="-translate-[50%] top-170 sm:top-160 absolute left-[50%] z-10 flex items-center gap-3 sm:gap-4 md:left-[100px] md:top-[205px] md:flex-col md:gap-5 lg:left-[110px] lg:top-[210px] xl:left-[120px] xl:top-[220px] 2xl:left-[130px] 2xl:top-[230px]"
+        class="absolute top-170 left-[50%] z-10 flex -translate-[50%] items-center gap-3 sm:top-160 sm:gap-4 md:top-[205px] md:left-[100px] md:flex-col md:gap-5 lg:top-[210px] lg:left-[110px] xl:top-[220px] xl:left-[120px] 2xl:top-[230px] 2xl:left-[130px]"
       >
-        <a href="#rent">
-          <BannerBtn>租借服務</BannerBtn>
-        </a>
-        <a href="#compaign">
-          <BannerBtn>精彩賽事</BannerBtn>
-        </a>
-        <a href="#intro">
-          <BannerBtn>場地介紹</BannerBtn>
-        </a>
+        <BannerBtn @click="scrollTo('rent')">租借服務</BannerBtn>
+        <BannerBtn @click="scrollTo('compaign')">精彩賽事</BannerBtn>
+        <BannerBtn @click="scrollTo('intro')">場地介紹</BannerBtn>
       </div>
       <BannerText></BannerText>
       <!-- 右邊影片 -->
@@ -62,30 +62,30 @@ const showGuide = ref(false)
   </header>
   <main>
     <!-- image slider -->
-    <div class="h-100 mt-10 hidden w-full overflow-hidden md:block">
+    <div class="mt-10 hidden h-100 w-full overflow-hidden md:block">
       <MarqueeSwiper></MarqueeSwiper>
     </div>
     <div
-      class="pt-70 xl:pt-50 2xl:pt-50 lg:py-30 2xl:py-50 md:py-50 font-inter relative w-full px-[13px] sm:px-[clamp(13px,10vw,180px)] sm:pt-80 md:py-20 md:pt-40 lg:pt-40 xl:py-40"
+      class="font-inter relative w-full px-[13px] pt-70 sm:px-[clamp(13px,10vw,180px)] sm:pt-80 md:py-20 md:py-50 md:pt-40 lg:py-30 lg:pt-40 xl:py-40 xl:pt-50 2xl:py-50 2xl:pt-50"
     >
       <!-- ParallaxSection -->
       <ParallaxSection></ParallaxSection>
       <SectionTitle id="intro" left="場地" right="介紹" />
       <!-- field -->
       <div
-        class="xl:p-15 z-10 mt-5 h-auto w-full bg-white p-8 shadow-2xl md:p-12"
+        class="z-10 mt-5 h-auto w-full bg-white p-8 shadow-2xl md:p-12 xl:p-15"
       >
         <div
           class="mb-5 flex h-auto w-full min-w-[100px] flex-col items-center md:mb-10"
         >
           <div class="relative flex">
             <div
-              class="aspect-1/1 bg-secondary absolute -left-6 top-[50%] flex h-12 w-12 -translate-y-[50%] items-center justify-center rounded-full text-[20px] font-bold md:-left-9 md:h-16 md:w-16 md:text-[30px] lg:-left-10 lg:h-[90%] lg:w-auto lg:text-[40px]"
+              class="bg-secondary absolute top-[50%] -left-6 flex aspect-1/1 h-12 w-12 -translate-y-[50%] items-center justify-center rounded-full text-[20px] font-bold md:-left-9 md:h-16 md:w-16 md:text-[30px] lg:-left-10 lg:h-[90%] lg:w-auto lg:text-[40px]"
             >
               <p class="-translate-x-[10%]">1</p>
             </div>
             <span
-              class="bg-[#D9D9D9] py-2 pl-10 pr-6 text-[20px] font-bold tracking-[5px] md:py-3 md:pl-14 md:pr-8 md:text-[30px] md:tracking-[12px] lg:text-[40px]"
+              class="bg-[#D9D9D9] py-2 pr-6 pl-10 text-[20px] font-bold tracking-[5px] md:py-3 md:pr-8 md:pl-14 md:text-[30px] md:tracking-[12px] lg:text-[40px]"
               >棒球場 內場</span
             >
           </div>
@@ -113,12 +113,12 @@ const showGuide = ref(false)
         >
           <div class="relative mb-5 flex">
             <div
-              class="aspect-1/1 bg-secondary absolute -left-6 top-[50%] flex h-12 w-12 -translate-y-[50%] items-center justify-center rounded-full text-[20px] font-bold md:-left-9 md:h-16 md:w-16 md:text-[30px] lg:-left-10 lg:h-[90%] lg:w-auto lg:text-[40px]"
+              class="bg-secondary absolute top-[50%] -left-6 flex aspect-1/1 h-12 w-12 -translate-y-[50%] items-center justify-center rounded-full text-[20px] font-bold md:-left-9 md:h-16 md:w-16 md:text-[30px] lg:-left-10 lg:h-[90%] lg:w-auto lg:text-[40px]"
             >
               2
             </div>
             <span
-              class="tracking-[5px]md:tracking-[12px] bg-[#D9D9D9] py-2 pl-10 pr-6 text-[20px] font-bold md:py-3 md:pl-14 md:pr-8 md:text-[30px] lg:text-[40px]"
+              class="tracking-[5px]md:tracking-[12px] bg-[#D9D9D9] py-2 pr-6 pl-10 text-[20px] font-bold md:py-3 md:pr-8 md:pl-14 md:text-[30px] lg:text-[40px]"
               >棒球場 外圍</span
             >
           </div>
@@ -139,25 +139,25 @@ const showGuide = ref(false)
         </div>
       </div>
       <div
-        class="xl:p-15 mb-40 mt-20 flex w-full flex-col items-center bg-white p-8 shadow-2xl md:p-12"
+        class="mt-20 mb-40 flex w-full flex-col items-center bg-white p-8 shadow-2xl md:p-12 xl:p-15"
       >
         <div
           class="mb-5 flex h-auto w-full min-w-[100px] flex-col items-center md:mb-10"
         >
           <div class="relative flex">
             <div
-              class="aspect-1/1 bg-secondary absolute -left-6 top-[50%] flex h-12 w-12 -translate-y-[50%] items-center justify-center rounded-full text-[20px] font-bold md:-left-9 md:h-16 md:w-16 md:text-[30px] lg:-left-10 lg:h-[90%] lg:w-auto lg:text-[40px]"
+              class="bg-secondary absolute top-[50%] -left-6 flex aspect-1/1 h-12 w-12 -translate-y-[50%] items-center justify-center rounded-full text-[20px] font-bold md:-left-9 md:h-16 md:w-16 md:text-[30px] lg:-left-10 lg:h-[90%] lg:w-auto lg:text-[40px]"
             >
               3
             </div>
             <span
-              class="bg-[#D9D9D9] py-2 pl-10 pr-6 text-[20px] font-bold tracking-[5px] sm:tracking-[12px] md:py-3 md:pl-14 md:pr-8 md:text-[30px] lg:text-[40px]"
+              class="bg-[#D9D9D9] py-2 pr-6 pl-10 text-[20px] font-bold tracking-[5px] sm:tracking-[12px] md:py-3 md:pr-8 md:pl-14 md:text-[30px] lg:text-[40px]"
               >多功能附屬運動中心</span
             >
           </div>
         </div>
         <p
-          class="mt-10 indent-[2em] text-[18px] font-medium leading-[50px] tracking-[4px] md:text-[24px] lg:text-[28px] xl:text-[32px]"
+          class="mt-10 indent-[2em] text-[18px] leading-[50px] font-medium tracking-[4px] md:text-[24px] lg:text-[28px] xl:text-[32px]"
         >
           臺中洲際棒球場附屬多功能運動中心由「好運來洲際婚宴中心」營運，為結合運動、活動與城市地標功能的複合式場館。建築採用極具特色的薄殼結構工法，直徑約
           70 公尺、高約 29
@@ -170,7 +170,7 @@ const showGuide = ref(false)
           <a href="http://www.lilo-park.com.tw/home.php?lang=tw" target="_blank"
             ><img src="@/assets/img/lilo-center.png" alt="好運來Logo"
           /></a>
-          <div class="h-18 flex -translate-x-1 items-center bg-[#C30D23] pr-5">
+          <div class="flex h-18 -translate-x-1 items-center bg-[#C30D23] pr-5">
             <BaseIcon
               name="mingcute:arrow-right-fill"
               class="text-[40px] text-white"
@@ -181,7 +181,7 @@ const showGuide = ref(false)
       <!-- rental -->
       <SectionTitle left="租借" right="服務" id="rent" />
       <div
-        class="font-inter p-13 xl:p-15 mb-20 flex h-auto w-full flex-col items-center bg-cover bg-center bg-no-repeat text-white 2xl:p-20"
+        class="font-inter mb-20 flex h-auto w-full flex-col items-center bg-cover bg-center bg-no-repeat p-13 text-white xl:p-15 2xl:p-20"
         :style="{ backgroundImage: `url(${searchBg})` }"
       >
         <p
@@ -209,20 +209,20 @@ const showGuide = ref(false)
             <NewsItem
               :item="{
                 date: { year: '2026', md: '02.01' },
-                title: '頑童MJ116主場，轟炸洲際！',
+                title: '頑童MJ116主場，轟炸洲際！'
               }"
             ></NewsItem>
             <NewsItem></NewsItem>
             <NewsItem
               :item="{
                 date: { year: '2026', md: '01.10' },
-                title: '洲際棒球場場館全面升級，迎接國際賽事！！',
+                title: '洲際棒球場場館全面升級，迎接國際賽事！！'
               }"
             ></NewsItem>
             <NewsItem
               :item="{
                 date: { year: '2025', md: '12.12' },
-                title: '優化觀眾動線、提升球場照明與 LED 大螢幕顯示效果',
+                title: '優化觀眾動線、提升球場照明與 LED 大螢幕顯示效果'
               }"
             ></NewsItem>
           </div>
@@ -230,7 +230,7 @@ const showGuide = ref(false)
         <!-- Calendar -->
         <div class="w-full xl:w-[50%]">
           <p
-            class="text-[50px] font-bold leading-none sm:text-[70px] md:text-[90px] lg:text-[96px]"
+            class="text-[50px] leading-none font-bold sm:text-[70px] md:text-[90px] lg:text-[96px]"
           >
             <span
               class="inline-block text-[50px] leading-none sm:text-[70px] md:text-[90px] lg:text-[96px]"

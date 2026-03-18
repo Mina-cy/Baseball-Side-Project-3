@@ -77,4 +77,3 @@ import accessibility from '@/assets/img/accessibility.svg'
 		</div>
 	</footer>
 </template>
-<style scoped></style>

@@ -3,7 +3,7 @@ import GeneralFrame from '@/components/GeneralFrame.vue'
 import aboutfield from '@/assets/img/aboutfield.png'
 import EventTimeline from '@/components/EventTimeline.vue'
 import timelinejson from '@/assets/json/timeline-events.json'
-
+import 'vue-devui/style.css'
 </script>
 
 <template>

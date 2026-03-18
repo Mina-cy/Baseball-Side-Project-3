@@ -6,23 +6,25 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import tailwindcss from '@tailwindcss/vite'
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    vue(),
-    Components({
-      resolvers: [DevUiResolver()]
-    }),
-    vueDevTools(),
-    tailwindcss()
-  ],
-  base: '/Baseball-Side-Project-3/',
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+export default defineConfig(({ command }) => {
+  return {
+    plugins: [
+      vue(),
+      Components({
+        resolvers: [DevUiResolver()]
+      }),
+      vueDevTools(),
+      tailwindcss()
+    ],
+    base: command === 'serve' ? '/' : '/Baseball-Side-Project-3/',
+
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url))
+      }
+    },
+    server: {
+      open: true
     }
-  },
-  server: {
-    open: true
   }
 })

@@ -217,7 +217,7 @@ const handleSubmit = () => {
               <BaseInput
                 label="統一編號"
                 v-model="formData.taxID"
-                maxlength="8"
+                :maxlength="8"
                 placeholder="請輸入8碼統一編號"
                 :error="errors.taxID"
               />

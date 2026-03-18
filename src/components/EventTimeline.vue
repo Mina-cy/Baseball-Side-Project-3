@@ -1,5 +1,6 @@
 <script setup>
-
+import { Timeline as DTimeline, TimelineItem as DTimelineItem } from 'vue-devui'
+import 'vue-devui/timeline/style.css'
 defineProps({
   events: {
     type: Array,

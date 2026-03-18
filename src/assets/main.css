@@ -1,8 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import "tailwindcss/preflight"; /* 強制注入基礎重設 */
+@import "tailwindcss/utilities"; /* 確保工具類存在 */
+@import "tailwindcss/theme";     /* 確保 --spacing 等變數存在 */
+
+@source "../**/*.{vue,js,ts,jsx,tsx}";
 @import 'tailwindcss';
-/*font*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 @theme {
+	
 	--font-inter: 'Inter', sans-serif;
 	--color-primary: #0D2853;
 	--color-secondary: #C62827;
