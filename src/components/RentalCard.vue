@@ -19,7 +19,9 @@ const handleToggle = () => {  // 加入點擊事件
   toggle(props.id, 'area')
 }
 const imgSrc = computed(() => {
-  return new URL(`../assets/img/json-image/${props.img}`, import.meta.url).href
+  if (!props.img) return ''
+  const base = import.meta.env.BASE_URL
+  return `${base}json-image/${props.img}`
 })
 </script>
 

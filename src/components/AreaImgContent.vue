@@ -11,7 +11,8 @@ const props = defineProps({
 
 const imgSrc = computed(() => {
   if (!props.detail?.imgURL) return ''
-  return new URL(`../assets/img/json-image/${props.detail.imgURL}`, import.meta.url).href
+  const base = import.meta.env.BASE_URL 
+  return `${base}json-image/${props.detail.imgURL}`
 })
 </script>
 

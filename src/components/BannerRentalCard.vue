@@ -39,10 +39,13 @@ const props = defineProps({
    isBookmarked: { type: Boolean, default: false }  
 })
 
-// 圖片路徑（根據你的實際存放位置調整）
+// 圖片路徑
 const imgSrc = computed(() => {
-  return new URL(`../assets/img/json-image-banner/${props.img}`, import.meta.url).href
+  if (!props.img) return ''
+  const base = import.meta.env.BASE_URL
+  return `${base}json-image-banner/${props.img}`
 })
+
 // 格式化價格顯示
 const formattedDeposit = computed(() => {
   if (!props.deposit) return ''

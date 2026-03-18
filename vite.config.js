@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => {
       vueDevTools(),
       tailwindcss()
     ],
-    base: command === 'serve' ? '/' : '/Baseball-Side-Project-3/',
+    base: '/Baseball-Side-Project-3/',
 
     resolve: {
       alias: {
