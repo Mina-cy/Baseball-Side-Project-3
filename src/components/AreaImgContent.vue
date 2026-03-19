@@ -11,8 +11,11 @@ const props = defineProps({
 
 const imgSrc = computed(() => {
   if (!props.detail?.imgURL) return ''
+  // 部署後是 "/Baseball-Side-Project-3/"
   const base = import.meta.env.BASE_URL 
-  return `${base}json-image/${props.detail.imgURL}`
+  // 假設你的圖片放在 public/images/ 裡面
+  // 如果 detail.imgURL 是 "ball.jpg"，最後會變成 "/Baseball-Side-Project-3/images/ball.jpg"
+  return `${base.replace(/\/$/, '')}/json-image/${props.detail.imgURL}`
 })
 </script>
 

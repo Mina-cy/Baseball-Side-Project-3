@@ -8,6 +8,8 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig(({ command }) => {
   return {
+    base: command === 'build' ? '/Baseball-Side-Project-3/' : '/',
+
     plugins: [
       vue(),
       Components({
@@ -16,8 +18,6 @@ export default defineConfig(({ command }) => {
       vueDevTools(),
       tailwindcss()
     ],
-    base: '/Baseball-Side-Project-3/',
-
     resolve: {
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url))

@@ -21,8 +21,9 @@ const handleToggle = () => {  // 加入點擊事件
 const imgSrc = computed(() => {
   if (!props.img) return ''
   const base = import.meta.env.BASE_URL
-  return `${base}json-image/${props.img}`
+  return `${base.replace(/\/$/, '')}/json-image/${props.img}`
 })
+
 </script>
 
 <template>
