@@ -8,7 +8,7 @@ const state = reactive({
   ad: new Set()
 })
 
-// 初始化：從 localStorage 讀回來
+// 從 localStorage 讀回來
 const saved = localStorage.getItem(KEY)
 if (saved) {
   try {

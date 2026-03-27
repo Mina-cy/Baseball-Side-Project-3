@@ -43,9 +43,9 @@ const closeGuide = () => {
       </div>
       <h3 class="text-2xl font-bold text-[#0D2953]">廣告租借</h3>
       <p class="text-lg leading-relaxed text-gray-600">
-        選擇您想要的廣告位置<br />
-        點擊卡片查看詳細資訊<br />
-        即可提出廣告租借提案
+        點擊卡片右上角的 <span class="font-bold text-[#C62828]">收藏</span>
+        <br>
+        即可將您心儀的廣告加入您的「合作提案」清單喔！
       </p>
       <button
         @click="closeGuide"
