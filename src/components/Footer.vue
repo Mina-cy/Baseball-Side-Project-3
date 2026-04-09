@@ -4,12 +4,20 @@ import BaseIcon from "@/components/BaseIcon.vue"
 import CPBL from '@/assets/img/CPBL.svg'
 import gotop from '@/assets/img/gotop.svg'
 import accessibility from '@/assets/img/accessibility.svg'
+// 新增滾動到頂端的方法
+const scrollToTop = (e) => {
+  e.preventDefault(); // 防止預設的錨點跳轉行為
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // 平滑滾動
+  });
+};
 </script>
 
 <template>
 	<footer class="relative w-full h-auto bg-cover bg-center bg-no-repeat text-white font-inter"
 		:style="{ backgroundImage: `url(${footerImg})` }">
-		<a href="#nav"><img :src="gotop" alt="gotop" class="absolute w-[130px] md:w-[160px] top-20 md:top-10 right-0 sm:right-10"></a>
+		<img @click="scrollToTop" :src="gotop" alt="gotop" class="absolute w-[130px] md:w-[160px] top-20 md:top-10 right-0 sm:right-10">
 		<div class="pl-3 sm:pl-22 md:pl-45 pt-45 pb-20 ">
 			<!-- title -->
 			<p class="text-[40px] font-bold tracking-wider">臺中洲際棒球場</p>

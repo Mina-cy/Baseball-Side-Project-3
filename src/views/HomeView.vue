@@ -62,7 +62,7 @@ const scrollTo = (id) => {
   </header>
   <main>
     <!-- image slider -->
-    <div class="mt-10 hidden h-100 w-full overflow-hidden md:block">
+    <div class="mt-10 hidden h-100 w-full overflow-hidden md:block shadow-xl">
       <MarqueeSwiper></MarqueeSwiper>
     </div>
     <div
