@@ -15,12 +15,16 @@ const paginatedData = computed(() => {
   const end = start + itemsPerPage
   return newsData.slice(start, end)
 })
+//第一頁就會顯示0-10筆
 
 // 切換頁面
 const handlePageChange = (page) => {
   currentPage.value = page
   // 可以加個平滑滾動到頂部
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  window.scrollTo({ 
+    top: 0, 
+    behavior: 'smooth' 
+  })
 }
 </script>
 

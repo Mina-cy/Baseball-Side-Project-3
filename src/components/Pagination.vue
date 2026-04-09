@@ -2,10 +2,22 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  totalItems: { type: Number, required: true },     // 總筆數
-  itemsPerPage: { type: Number, default: 5 },       // 每頁筆數
-  currentPage: { type: Number, default: 1 },        // 當前頁碼
-  visiblePages: { type: Number, default: 5 }        // 顯示多少個頁碼按鈕
+  totalItems: { 
+    type: Number, 
+    required: true 
+  },     // 總筆數
+  itemsPerPage: { 
+    type: Number, 
+    default: 5 
+  },       // 每頁筆數
+  currentPage: { 
+    type: Number, 
+    default: 1 
+  },        // 當前頁碼
+  visiblePages: { 
+    type: Number, 
+    default: 5 
+  }        // 顯示多少個頁碼按鈕
 })
 
 const emit = defineEmits(['page-change'])
@@ -46,7 +58,7 @@ const goToPage = (page) => {
     <button 
       @click="goToPage(currentPage - 1)"
       :disabled="currentPage === 1"
-      class="px-3 py-1 rounded border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
+      class="px-3 py-1 rounded  disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
     >
       上一頁
     </button>
@@ -55,7 +67,7 @@ const goToPage = (page) => {
     <button 
       v-if="pagesArray[0] > 1"
       @click="goToPage(1)"
-      class="px-3 py-1 rounded border hover:bg-gray-100"
+      class="px-3 py-1 rounded  hover:bg-gray-100"
     >
       1
     </button>
@@ -66,10 +78,10 @@ const goToPage = (page) => {
       v-for="page in pagesArray"
       :key="page"
       @click="goToPage(page)"
-      class="px-3 py-1 rounded border transition-colors"
+      class="px-3 py-1 rounded  transition-colors"
       :class="[
         currentPage === page 
-          ? 'bg-[#0D2953] text-white border-[#0D2953]' 
+          ? 'bg-[#0D2953] text-white' 
           : 'hover:bg-gray-100'
       ]"
     >
@@ -81,7 +93,7 @@ const goToPage = (page) => {
     <button 
       v-if="pagesArray[pagesArray.length - 1] < totalPages"
       @click="goToPage(totalPages)"
-      class="px-3 py-1 rounded border hover:bg-gray-100"
+      class="px-3 py-1 rounded hover:bg-gray-100"
     >
       {{ totalPages }}
     </button>
@@ -90,7 +102,7 @@ const goToPage = (page) => {
     <button 
       @click="goToPage(currentPage + 1)"
       :disabled="currentPage === totalPages"
-      class="px-3 py-1 rounded border disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
+      class="px-3 py-1 rounded disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-100"
     >
       下一頁
     </button>

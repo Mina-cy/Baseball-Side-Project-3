@@ -4,7 +4,7 @@ import BaseIcon from "@/components/BaseIcon.vue"
 import CPBL from '@/assets/img/CPBL.svg'
 import gotop from '@/assets/img/gotop.svg'
 import accessibility from '@/assets/img/accessibility.svg'
-// 新增滾動到頂端的方法
+// 滾動到頂端的方法
 const scrollToTop = (e) => {
   e.preventDefault(); // 防止預設的錨點跳轉行為
   window.scrollTo({
