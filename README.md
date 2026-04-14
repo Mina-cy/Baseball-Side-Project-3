@@ -150,7 +150,7 @@ src/
 - **作者**：廖晨妤
 - **Email**：minachenyu08@gmail.com
 - **GitHub**：[@https://github.com/Mina-cy]
-- **作品集**：[https://github.com/Mina-cy/Baseball-Side-Project-3.git]
+- **作品集**：[ https://mina-cy.github.io/Baseball-Side-Project-3/]
 
 ---
 
